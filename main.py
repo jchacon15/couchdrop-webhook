@@ -30,7 +30,8 @@ def handle_webhook():
     df.columns = [col.strip().replace(" ", "_").upper() for col in df.columns]
     df.to_csv(cleaned_path, index=False)
 
-    cleaned_remote_path = file_path.replace('Five9', 'Five9/Processed')
+    cleaned_remote_path = file_path.replace('reports', 'reports/Processed')
+
     try:
         sftp.mkdir('/Outbound/Five9/Processed')
     except:
